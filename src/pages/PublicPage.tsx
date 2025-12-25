@@ -88,39 +88,40 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
     return {
       width: '100%',
       height: '44px',
-      padding: '0 12px',
+      padding: '0 14px',
       fontSize: '16px',
       fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
       fontWeight: 400,
-      border: hasError 
-        ? '2px solid #c53030' 
-        : isFocused 
-          ? '2px solid #8b7355' 
-          : '1px solid #c9c9c9',
-      borderRadius: '6px',
+      border: 'none',
+      borderRadius: '4px',
       outline: 'none',
-      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+      transition: 'all 0.2s ease',
       boxSizing: 'border-box' as const,
-      backgroundColor: '#ffffff',
+      backgroundColor: hasError ? '#FFFFFF' : isFocused ? '#FFFFFF' : '#F5F5F4',
       color: '#1a1a1a',
-      boxShadow: isFocused ? '0 0 0 2px rgba(139, 115, 85, 0.1)' : 'none',
+      boxShadow: hasError 
+        ? '0 0 0 2px #c53030' 
+        : isFocused 
+          ? '0 0 0 2px #8b7355, 0 0 0 4px rgba(139, 115, 85, 0.1)' 
+          : 'none',
     };
   };
 
   const labelStyle: React.CSSProperties = {
     display: 'block',
-    marginBottom: '4px',
-    fontSize: '13px',
+    marginBottom: '5px',
+    fontSize: '12px',
     fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
     fontWeight: 500,
     color: '#333333',
+    letterSpacing: '0.2px',
   };
 
   const errorStyle: React.CSSProperties = {
     color: '#c53030',
-    fontSize: '12px',
+    fontSize: '11px',
     fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-    marginTop: '2px',
+    marginTop: '3px',
   };
 
   return (
@@ -134,9 +135,14 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FAFAF9',
       }}
     >
+      {/* Google Font */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
       {/* Header */}
       <header
         className="header"
@@ -149,8 +155,8 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           style={{
             fontSize: '10px',
             fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-            fontWeight: 400,
-            letterSpacing: '2px',
+            fontWeight: 500,
+            letterSpacing: '2.5px',
             color: '#1a1a1a',
           }}
         >
@@ -190,7 +196,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           <h1
             className="main-title"
             style={{
-              fontFamily: '"Times New Roman", Times, Georgia, serif',
+              fontFamily: '"Playfair Display", Georgia, serif',
               fontSize: 'clamp(24px, 3vw, 40px)',
               fontWeight: 400,
               fontStyle: 'italic',
@@ -207,10 +213,10 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           <p
             className="subtitle-text"
             style={{
-              fontFamily: '"Times New Roman", Times, Georgia, serif',
+              fontFamily: '"Playfair Display", Georgia, serif',
               fontSize: 'clamp(14px, 1.5vw, 18px)',
               fontWeight: 400,
-              color: '#1a1a1a',
+              color: '#333333',
               marginBottom: '16px',
               letterSpacing: '0.2px',
             }}
@@ -224,7 +230,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             style={{
               fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
               fontSize: 'clamp(13px, 1vw, 15px)',
-              lineHeight: 1.6,
+              lineHeight: 1.55,
               color: '#444444',
               maxWidth: '480px',
             }}
@@ -245,6 +251,8 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             className="promise-section"
             style={{
               marginTop: '20px',
+              paddingTop: '12px',
+              borderTop: '1px solid #e0e0e0',
               display: 'flex',
               flexDirection: 'column',
             }}
@@ -254,9 +262,9 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
               style={{
                 fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
                 fontSize: '9px',
-                fontWeight: 500,
-                letterSpacing: '2px',
-                color: '#666666',
+                fontWeight: 600,
+                letterSpacing: '2.5px',
+                color: '#8b7355',
                 marginBottom: '8px',
               }}
             >
@@ -270,7 +278,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
                 gap: '4px 20px',
                 fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
                 fontSize: 'clamp(11px, 0.9vw, 13px)',
-                color: '#333333',
+                color: '#555555',
                 lineHeight: 1.4,
               }}
             >
@@ -296,17 +304,17 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           <div
             className="form-container"
             style={{
-              backgroundColor: '#f8f8f7',
-              borderRadius: '10px',
+              background: 'linear-gradient(180deg, #FFFFFF 0%, #FAFAF9 100%)',
+              borderRadius: '8px',
               padding: '20px',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+              boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04)',
               border: '1px solid #e8e8e6',
             }}
           >
             <h2
               className="form-title"
               style={{
-                fontFamily: '"Times New Roman", Times, Georgia, serif',
+                fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(18px, 2vw, 24px)',
                 fontWeight: 400,
                 fontStyle: 'italic',
@@ -389,8 +397,8 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
                 {errors.organizationReferral && <div style={errorStyle}>{errors.organizationReferral}</div>}
                 <p
                   style={{
-                    fontSize: '11px',
-                    color: '#666666',
+                    fontSize: '10px',
+                    color: '#777777',
                     marginTop: '4px',
                     fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
                   }}
@@ -405,31 +413,36 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
                 disabled={isSubmitting}
                 style={{
                   width: '100%',
-                  height: '44px',
+                  height: '46px',
                   fontSize: '12px',
                   fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
                   fontWeight: 500,
-                  letterSpacing: '1px',
+                  letterSpacing: '2px',
                   color: '#ffffff',
                   backgroundColor: submitSuccess ? '#2d6a4f' : '#8b7355',
                   border: 'none',
-                  borderRadius: '6px',
+                  borderRadius: '4px',
                   cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                  transition: 'background-color 0.25s ease',
+                  transition: 'all 0.25s ease',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
                   opacity: isSubmitting && !submitSuccess ? 0.85 : 1,
+                  boxShadow: '0 2px 8px rgba(139, 115, 85, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1)',
                 }}
                 onMouseEnter={(e) => {
                   if (!isSubmitting && !submitSuccess) {
-                    e.currentTarget.style.backgroundColor = '#6d5a44';
+                    e.currentTarget.style.backgroundColor = '#7a654a';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 115, 85, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isSubmitting && !submitSuccess) {
                     e.currentTarget.style.backgroundColor = '#8b7355';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(139, 115, 85, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.transform = 'translateY(0)';
                   }
                 }}
               >
@@ -449,21 +462,21 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
                     ACCESS GRANTED
                   </>
                 ) : (
-                  'SUBMIT'
+                  'SECURE ACCESS'
                 )}
               </button>
 
               <p
                 style={{
                   marginTop: '10px',
-                  fontSize: '11px',
+                  fontSize: '10px',
                   fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-                  color: '#666666',
+                  color: '#777777',
                   textAlign: 'center',
                 }}
               >
                 By submitting, you agree to our{' '}
-                <a href="#" style={{ color: '#8b7355', textDecoration: 'underline' }}>Privacy Policy</a>.
+                <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Privacy Policy</a>.
               </p>
             </form>
           </div>
@@ -474,27 +487,35 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
       <footer
         className="footer"
         style={{
-          padding: '8px 16px',
+          padding: '10px 20px',
           display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
+          flexDirection: 'column',
           alignItems: 'center',
           gap: '4px',
           fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
           fontSize: '9px',
           color: '#888888',
           flexShrink: 0,
-          borderTop: '1px solid #eeeeee',
+          borderTop: '1px solid #e5e5e5',
+          backgroundColor: '#FAFAF9',
         }}
       >
-        <span>Resonance Sync Ltd | A Delaware Corporation</span>
-        <span style={{ maxWidth: '280px', textAlign: 'right', lineHeight: 1.4 }}>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Privacy Policy</a>
+          <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Terms of Service</a>
+          <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Refund Policy</a>
+        </div>
+        <span style={{ fontSize: '8px', color: '#999', letterSpacing: '0.5px' }}>SSL Secure · 256-bit Encryption · GDPR Compliant</span>
+        <span style={{ color: '#888' }}>© 2025 Resonance Sync Ltd. All Rights Reserved.</span>
+        <span style={{ color: '#999', lineHeight: 1.4 }}>
           We do not provide investment advice, brokerage services, or escrow of funds.
         </span>
       </footer>
 
       <style>
         {`
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+          
           * {
             margin: 0;
             padding: 0;
@@ -504,7 +525,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           html, body, #root {
             overflow: hidden !important;
             height: 100%;
-            background-color: #ffffff !important;
+            background-color: #FAFAF9 !important;
             -webkit-font-smoothing: antialiased;
           }
 
@@ -518,51 +539,175 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           }
           
           input:disabled {
-            background-color: #f5f5f5;
+            background-color: #EEEEEE;
             cursor: not-allowed;
+          }
+
+          /* ========== DESKTOP ONLY - Private Bank Premium ========== */
+          @media (min-width: 901px) {
+            .main-content {
+              padding: 0 80px !important;
+              gap: 72px !important;
+              max-width: 1280px !important;
+              margin: 0 auto !important;
+            }
+
+            .content-section {
+              max-width: 600px !important;
+            }
+
+            .main-title {
+              font-size: 44px !important;
+              margin-bottom: 16px !important;
+              line-height: 1.12 !important;
+            }
+
+            .subtitle-text {
+              font-size: 18px !important;
+              margin-bottom: 28px !important;
+            }
+
+            .description-section {
+              font-size: 15px !important;
+              line-height: 1.7 !important;
+              max-width: 540px !important;
+            }
+
+            .description-section p {
+              margin-bottom: 16px !important;
+            }
+
+            .promise-section {
+              margin-top: 36px !important;
+              padding-top: 24px !important;
+            }
+
+            .promise-label {
+              font-size: 10px !important;
+              margin-bottom: 14px !important;
+              letter-spacing: 3px !important;
+            }
+
+            .promise-grid {
+              gap: 8px 48px !important;
+              font-size: 14px !important;
+              line-height: 1.5 !important;
+            }
+
+            .form-section {
+              width: 380px !important;
+            }
+
+            .form-container {
+              padding: 28px !important;
+            }
+
+            .form-title {
+              font-size: 26px !important;
+              margin-bottom: 8px !important;
+            }
+
+            .form-subtitle {
+              font-size: 14px !important;
+              margin-bottom: 20px !important;
+            }
+
+            .form-container .form-group {
+              margin-bottom: 16px !important;
+            }
+
+            .form-container .form-group:last-of-type {
+              margin-bottom: 20px !important;
+            }
+
+            .form-container label {
+              font-size: 13px !important;
+              margin-bottom: 8px !important;
+            }
+
+            .form-container input {
+              height: 50px !important;
+              font-size: 16px !important;
+              padding: 0 16px !important;
+            }
+
+            .field-hint {
+              font-size: 12px !important;
+              margin-top: 6px !important;
+            }
+
+            .submit-btn {
+              height: 52px !important;
+              font-size: 13px !important;
+              letter-spacing: 2.5px !important;
+            }
+
+            .privacy-text {
+              margin-top: 14px !important;
+              font-size: 11px !important;
+            }
+
+            footer {
+              padding: 16px 80px !important;
+              gap: 6px !important;
+              max-width: 1280px !important;
+              margin: 0 auto !important;
+            }
+
+            .footer-links {
+              gap: 24px !important;
+              font-size: 11px !important;
+            }
+
+            .footer-trust {
+              font-size: 9px !important;
+            }
+
+            .footer-company,
+            .footer-legal {
+              font-size: 10px !important;
+            }
           }
 
           /* ========== MOBILE - JPM Private Bank Standard ========== */
           @media (max-width: 900px) {
             .main-content {
               flex-direction: column !important;
-              padding: 0 24px !important;
-              gap: 16px !important;
+              padding: 0 20px !important;
+              gap: 10px !important;
               justify-content: center !important;
               align-items: center !important;
             }
             
             .content-section {
               flex: 0 0 auto !important;
-              text-align: center;
+              text-align: left !important;
               justify-content: center !important;
               width: 100% !important;
             }
             
-            /* 主标题 - 更强的视觉层级 */
             .main-title {
-              font-size: 26px !important;
-              line-height: 1.2 !important;
-              margin-bottom: 8px !important;
-              letter-spacing: -0.5px !important;
-              color: #0d0d0d !important;
-            }
-            
-            /* 副标题 - 优雅的衬线体 */
-            .subtitle-text {
-              font-size: 15px !important;
-              margin-bottom: 16px !important;
+              font-size: 22px !important;
+              line-height: 1.18 !important;
+              margin-bottom: 6px !important;
+              letter-spacing: -0.3px !important;
               color: #1a1a1a !important;
-              letter-spacing: 0.3px !important;
+              text-align: center !important;
             }
             
-            /* 描述文字 - 舒适的阅读体验 */
-            .description-section {
+            .subtitle-text {
               font-size: 14px !important;
-              line-height: 1.65 !important;
+              margin-bottom: 10px !important;
+              color: #333 !important;
+              text-align: center !important;
+            }
+            
+            .description-section {
+              font-size: 13px !important;
+              line-height: 1.5 !important;
               max-width: 100% !important;
-              color: #3d3d3d !important;
-              letter-spacing: 0.1px !important;
+              color: #444 !important;
+              text-align: left !important;
             }
             
             .description-section p {
@@ -573,30 +718,40 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
               display: none !important;
             }
             
-            /* OUR PROMISE - 更有存在感 */
+            /* OUR PROMISE - 两列布局 */
             .promise-section {
-              margin-top: 20px !important;
-              padding-top: 16px !important;
-              border-top: 1px solid #e5e5e5 !important;
+              margin-top: 12px !important;
+              padding-top: 10px !important;
+              border-top: 1px solid #e0e0e0 !important;
             }
             
             .promise-label {
-              font-size: 10px !important;
+              font-size: 8px !important;
               font-weight: 600 !important;
-              margin-bottom: 12px !important;
+              margin-bottom: 8px !important;
               color: #8b7355 !important;
-              letter-spacing: 2.5px !important;
+              letter-spacing: 2px !important;
+              text-align: center !important;
             }
             
             .promise-grid {
-              grid-template-columns: 1fr !important;
-              gap: 8px !important;
-              font-size: 13px !important;
-              line-height: 1.5 !important;
-              color: #2d2d2d !important;
+              grid-template-columns: 1fr 1fr !important;
+              gap: 4px 20px !important;
+              font-size: 10px !important;
+              line-height: 1.35 !important;
+              color: #555 !important;
+              text-align: left !important;
             }
             
-            /* 表单区域 - 私行级精致感 */
+            .promise-grid span:nth-child(odd) {
+              text-align: left !important;
+            }
+            
+            .promise-grid span:nth-child(even) {
+              text-align: left !important;
+            }
+            
+            /* 表单 */
             .form-section {
               width: 100% !important;
               max-width: 100% !important;
@@ -604,200 +759,108 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             }
             
             .form-container {
-              padding: 20px !important;
+              padding: 14px 16px !important;
               border-radius: 6px !important;
-              background: linear-gradient(180deg, #fafafa 0%, #f5f5f4 100%) !important;
-              border: 1px solid #e0e0de !important;
-              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
-            }
-            
-            .form-title {
-              font-size: 20px !important;
-              margin-bottom: 6px !important;
-              color: #0d0d0d !important;
-            }
-            
-            .form-subtitle {
-              font-size: 13px !important;
-              margin-bottom: 16px !important;
-              color: #555555 !important;
-              letter-spacing: 0.1px !important;
-            }
-            
-            .form-container input {
-              height: 48px !important;
-              font-size: 16px !important;
-              padding: 0 14px !important;
-              border-radius: 4px !important;
-              border: 1px solid #c0c0c0 !important;
-              background: #ffffff !important;
-            }
-            
-            .form-container input:focus {
-              border: 2px solid #8b7355 !important;
-              box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1) !important;
-            }
-            
-            .form-container label {
-              font-size: 13px !important;
-              font-weight: 500 !important;
-              margin-bottom: 6px !important;
-              color: #2d2d2d !important;
-              letter-spacing: 0.2px !important;
-            }
-            
-            .form-container form > div {
-              margin-bottom: 14px !important;
-            }
-            
-            .form-container form > div:last-of-type {
-              margin-bottom: 18px !important;
-            }
-            
-            .form-container form > div:last-of-type p {
-              font-size: 11px !important;
-              margin-top: 6px !important;
-              color: #777777 !important;
-            }
-            
-            .form-container button {
-              height: 48px !important;
-              font-size: 13px !important;
-              font-weight: 500 !important;
-              border-radius: 4px !important;
-              letter-spacing: 1.5px !important;
-              box-shadow: 0 2px 8px rgba(139, 115, 85, 0.25) !important;
-            }
-            
-            .form-container form > p:last-child {
-              margin-top: 14px !important;
-              font-size: 11px !important;
-              color: #777777 !important;
-            }
-            
-            .header {
-              padding: 14px 24px !important;
-            }
-            
-            .header div {
-              font-size: 11px !important;
-              font-weight: 500 !important;
-              letter-spacing: 2.5px !important;
-              color: #0d0d0d !important;
-            }
-            
-            .footer {
-              padding: 12px 24px !important;
-              font-size: 10px !important;
-              color: #888888 !important;
-              border-top: 1px solid #e8e8e8 !important;
-            }
-          }
-
-          /* 400x704 精确适配 */
-          @media (max-width: 420px) and (max-height: 720px) {
-            .header {
-              padding: 10px 20px !important;
-            }
-            
-            .main-content {
-              padding: 0 20px !important;
-              gap: 12px !important;
-              justify-content: center !important;
-            }
-            
-            .main-title {
-              font-size: 23px !important;
-              margin-bottom: 6px !important;
-            }
-            
-            .subtitle-text {
-              font-size: 14px !important;
-              margin-bottom: 12px !important;
-            }
-            
-            .description-section {
-              font-size: 13px !important;
-              line-height: 1.55 !important;
-            }
-            
-            .promise-section {
-              margin-top: 14px !important;
-              padding-top: 12px !important;
-            }
-            
-            .promise-label {
-              font-size: 9px !important;
-              margin-bottom: 10px !important;
-            }
-            
-            .promise-grid {
-              font-size: 12px !important;
-              gap: 6px !important;
-            }
-            
-            .form-container {
-              padding: 16px !important;
+              background: linear-gradient(180deg, #FFFFFF 0%, #FAFAF9 100%) !important;
+              border: 1px solid #e5e5e3 !important;
+              box-shadow: 0 3px 16px rgba(0, 0, 0, 0.06) !important;
             }
             
             .form-title {
               font-size: 18px !important;
               margin-bottom: 4px !important;
+              color: #1a1a1a !important;
+              text-align: left !important;
             }
             
             .form-subtitle {
               font-size: 12px !important;
-              margin-bottom: 14px !important;
+              margin-bottom: 12px !important;
+              color: #666 !important;
+              text-align: left !important;
             }
             
             .form-container input {
-              height: 46px !important;
+              height: 44px !important;
+              font-size: 16px !important;
+              padding: 0 12px !important;
+              border-radius: 4px !important;
+              border: none !important;
+              background: #F5F5F4 !important;
+            }
+            
+            .form-container input:focus {
+              background: #FFFFFF !important;
+              box-shadow: 0 0 0 2px #8b7355, 0 0 0 4px rgba(139, 115, 85, 0.1) !important;
             }
             
             .form-container label {
               font-size: 12px !important;
+              font-weight: 500 !important;
               margin-bottom: 5px !important;
+              color: #333 !important;
             }
             
             .form-container form > div {
-              margin-bottom: 12px !important;
+              margin-bottom: 10px !important;
             }
             
             .form-container form > div:last-of-type {
-              margin-bottom: 16px !important;
+              margin-bottom: 12px !important;
             }
             
             .form-container form > div:last-of-type p {
               font-size: 10px !important;
-              margin-top: 5px !important;
+              margin-top: 4px !important;
+              color: #777 !important;
             }
             
             .form-container button {
-              height: 46px !important;
-              font-size: 12px !important;
+              height: 44px !important;
+              font-size: 11px !important;
+              font-weight: 500 !important;
+              border-radius: 4px !important;
+              letter-spacing: 2px !important;
+              box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3) !important;
             }
             
             .form-container form > p:last-child {
-              margin-top: 12px !important;
+              margin-top: 10px !important;
               font-size: 10px !important;
+              color: #777 !important;
+            }
+            
+            .header {
+              padding: 10px 20px !important;
+            }
+            
+            .header div {
+              font-size: 10px !important;
+              font-weight: 500 !important;
+              letter-spacing: 2px !important;
+              color: #1a1a1a !important;
             }
             
             .footer {
-              padding: 10px 20px !important;
+              padding: 8px 20px !important;
               font-size: 9px !important;
+              gap: 4px !important;
+            }
+            
+            .footer > div:first-child {
+              gap: 12px !important;
             }
           }
 
-          /* 极小屏幕 */
-          @media (max-width: 380px) {
+          /* 400x704 */
+          @media (max-width: 420px) and (max-height: 720px) {
             .header {
-              padding: 8px 16px !important;
+              padding: 8px 20px !important;
             }
             
             .main-content {
-              padding: 0 16px !important;
-              gap: 10px !important;
-              justify-content: center !important;
+              padding: 0 20px !important;
+              gap: 8px !important;
             }
             
             .main-title {
@@ -807,7 +870,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             
             .subtitle-text {
               font-size: 13px !important;
-              margin-bottom: 10px !important;
+              margin-bottom: 8px !important;
             }
             
             .description-section {
@@ -817,69 +880,159 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             
             .promise-section {
               margin-top: 10px !important;
-              padding-top: 10px !important;
+              padding-top: 8px !important;
             }
             
             .promise-label {
-              font-size: 8px !important;
-              margin-bottom: 8px !important;
+              font-size: 7px !important;
+              margin-bottom: 6px !important;
             }
             
             .promise-grid {
-              font-size: 11px !important;
-              gap: 4px !important;
+              grid-template-columns: 1fr 1fr !important;
+              font-size: 9px !important;
+              gap: 3px 16px !important;
             }
             
             .form-container {
-              padding: 14px !important;
+              padding: 12px 14px !important;
             }
             
             .form-title {
               font-size: 16px !important;
+              margin-bottom: 2px !important;
             }
             
             .form-subtitle {
               font-size: 11px !important;
-              margin-bottom: 12px !important;
+              margin-bottom: 10px !important;
             }
             
             .form-container input {
-              height: 44px !important;
+              height: 42px !important;
             }
             
             .form-container label {
               font-size: 11px !important;
+              margin-bottom: 4px !important;
             }
             
             .form-container form > div {
-              margin-bottom: 10px !important;
+              margin-bottom: 8px !important;
             }
             
             .form-container form > div:last-of-type {
-              margin-bottom: 14px !important;
+              margin-bottom: 10px !important;
+            }
+            
+            .form-container form > div:last-of-type p {
+              font-size: 9px !important;
+              margin-top: 3px !important;
             }
             
             .form-container button {
-              height: 44px !important;
+              height: 42px !important;
               font-size: 11px !important;
             }
             
             .form-container form > p:last-child {
-              margin-top: 10px !important;
+              margin-top: 8px !important;
               font-size: 9px !important;
             }
             
             .footer {
-              flex-direction: column !important;
-              text-align: center !important;
-              gap: 4px !important;
-              padding: 8px 16px !important;
+              padding: 6px 16px !important;
+              font-size: 8px !important;
+              gap: 3px !important;
+            }
+            
+            .footer > div:first-child {
+              gap: 10px !important;
+            }
+          }
+
+          /* 极小屏幕 */
+          @media (max-width: 380px) {
+            .header {
+              padding: 6px 14px !important;
+            }
+            
+            .main-content {
+              padding: 0 14px !important;
+              gap: 6px !important;
+            }
+            
+            .main-title {
+              font-size: 18px !important;
+            }
+            
+            .subtitle-text {
+              font-size: 12px !important;
+              margin-bottom: 6px !important;
+            }
+            
+            .description-section {
+              font-size: 11px !important;
+            }
+            
+            .promise-section {
+              margin-top: 8px !important;
+              padding-top: 6px !important;
+            }
+            
+            .promise-grid {
+              grid-template-columns: 1fr 1fr !important;
+              font-size: 8px !important;
+              gap: 2px 12px !important;
+            }
+            
+            .form-container {
+              padding: 10px 12px !important;
+            }
+            
+            .form-title {
+              font-size: 15px !important;
+            }
+            
+            .form-subtitle {
+              font-size: 10px !important;
+              margin-bottom: 8px !important;
+            }
+            
+            .form-container input {
+              height: 40px !important;
+            }
+            
+            .form-container label {
+              font-size: 10px !important;
+            }
+            
+            .form-container form > div {
+              margin-bottom: 6px !important;
+            }
+            
+            .form-container form > div:last-of-type {
+              margin-bottom: 8px !important;
+            }
+            
+            .form-container button {
+              height: 40px !important;
+              font-size: 10px !important;
+            }
+            
+            .form-container form > p:last-child {
+              margin-top: 6px !important;
               font-size: 8px !important;
             }
             
-            .footer span:last-child {
-              max-width: 100% !important;
-              text-align: center !important;
+            .footer {
+              gap: 3px !important;
+              padding: 5px 14px !important;
+              font-size: 7px !important;
+            }
+            
+            .footer > div:first-child {
+              gap: 8px !important;
             }
           }
 
@@ -887,14 +1040,12 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           @media (max-height: 500px) and (orientation: landscape) {
             .main-content {
               flex-direction: row !important;
-              gap: 32px !important;
+              gap: 24px !important;
               align-items: center !important;
-              justify-content: center !important;
             }
             
             .content-section {
               text-align: left !important;
-              justify-content: center !important;
               flex: 1 1 55% !important;
             }
             
@@ -912,7 +1063,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             }
             
             .form-section {
-              width: 340px !important;
+              width: 320px !important;
               flex: 0 0 auto !important;
             }
           }
