@@ -377,10 +377,10 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
                 {errors.businessName && <div style={errorStyle}>{errors.businessName}</div>}
               </div>
 
-              {/* Referral Code */}
+              {/* Invitation Code */}
               <div style={{ marginBottom: '14px' }}>
                 <label htmlFor="referral" style={labelStyle}>
-                  Referral Code <span style={{ color: '#c53030' }}>*</span>
+                  Invitation Code <span style={{ color: '#c53030' }}>*</span>
                 </label>
                 <input
                   id="referral"
@@ -403,7 +403,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
                     fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
                   }}
                 >
-                  Valid referral code required for access.
+                  Invitation-only access. A valid code is required.
                 </p>
               </div>
 
@@ -505,7 +505,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Terms of Service</a>
           <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Refund Policy</a>
         </div>
-        <span style={{ fontSize: '8px', color: '#999', letterSpacing: '0.5px' }}>SSL Secure · 256-bit Encryption · GDPR Compliant</span>
+        <span style={{ fontSize: '8px', color: '#999', letterSpacing: '0.5px' }}>Encrypted in transit (TLS) · Privacy-first handling</span>
         <span style={{ color: '#888' }}>© 2025 Resonance Sync Ltd. All Rights Reserved.</span>
         <span style={{ color: '#999', lineHeight: 1.4 }}>
           We do not provide investment advice, brokerage services, or escrow of funds.
