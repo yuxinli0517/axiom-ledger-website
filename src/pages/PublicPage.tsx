@@ -160,7 +160,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
             color: '#1a1a1a',
           }}
         >
-          RESONANCE SYNC
+          AXIOM LEDGER
         </div>
       </header>
 
@@ -506,7 +506,7 @@ const PublicPage: React.FC<PublicPageProps> = ({ onLogin }) => {
           <a href="#" style={{ color: '#8b7355', textDecoration: 'none' }}>Refund Policy</a>
         </div>
         <span style={{ fontSize: '8px', color: '#999', letterSpacing: '0.5px' }}>Encrypted in transit (TLS) · Privacy-first handling</span>
-        <span style={{ color: '#888' }}>© 2025 Resonance Sync Ltd. All Rights Reserved.</span>
+        <span style={{ color: '#888' }}>© 2025 Axiom Ledger Ltd. All Rights Reserved.</span>
         <span style={{ color: '#999', lineHeight: 1.4 }}>
           We do not provide investment advice, brokerage services, or escrow of funds.
         </span>
